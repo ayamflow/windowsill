@@ -4,6 +4,12 @@ windowsill
 Abstract, debounced windows events.
 Allow you to listen to an event emitter rather than to the DOM.
 
+
+## Installation
+`npm i windowsill --save`
+
+`component install ayamflow/windowsill`
+
 ## API
 ### windowsill(event, opts)
 Factory returning a sill object (event emitter responding to the provided `event`).
