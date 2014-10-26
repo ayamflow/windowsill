@@ -1,7 +1,7 @@
 windowsill
 ====
 
-Abstracted, debounced windows events.
+Abstract, debounced windows events.
 Allow you to listen to an event emitter rather than to the DOM.
 
 ## API
@@ -50,8 +50,8 @@ scroller.addListener(this.onScroll);
 * *(2)* you can also pass additionnal properties as non-string, mostly to give initial values.
 * *(3)* you can pass `beforeEvent` and `afterEvent` callbacks, which will be called respectively before and after the event is emitted. Those callbacks will automatically be called with the sill context.
 
-By default, `scroll` and `resize` are already available as `windowsill.resizer` and `windowsill.scroller`, with default debounce time (see events.js for more details).
-This allows to bind all window event to a global abstracted object:
+By default, `scroll` and `resize` are already available as `windowsill.resizer` and `windowsill.scroller`, with default debounce time (see [events.js](https://github.com/ayamflow/windowsill/blob/master/src/events.js) for more details).
+This allows to bind all window events to a global abstract object:
 
 ```
 var windowsill = require('windowsill'),

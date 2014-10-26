@@ -1,14 +1,11 @@
 {
   "name": "windowsill",
   "version": "1.0.1",
+  "repository": "ayamflow/windowsill",
   "description": "Abstract, debounced windows events.",
   "main": "src/index.js",
   "scripts": {
     "test": "beefy test/index.js:test/tests.js --debug=false"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ayamflow/windowsill"
   },
   "keywords": [
     "events",
@@ -23,10 +20,12 @@
     "url": "https://github.com/ayamflow/windowsill/issues"
   },
   "dependencies": {
-    "tiny-emitter": "~1.0.0",
-    "debounce": "~1.0.0"
+    "scottcorgan/tiny-emitter": "*",
+    "component/debounce": "*"
   },
   "devDependencies": {
-    "tape": "~3.0.1"
-  }
+    "substack/tape": "~3.0.1"
+  },
+  "scripts": ["src/index.js", "src/events.js"],
+  "license": "MIT"
 }
