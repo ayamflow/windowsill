@@ -26,8 +26,8 @@ var windowsill = module.exports = function(eventName, opts) {
         },
 
         onEvent: function(event) {
-            // call beforeEvent hook with context
-            if(this.opts.beforeEvent) this.opts.beforeEvent.call(this);
+            // call beforeEvent hook
+            if(this.opts.beforeEvent) this.opts.beforeEvent(this, event);
 
             // inherit all properties from the provided `prop` hash.
             // If string, will bind the window[prop] to this[prop]
@@ -49,8 +49,8 @@ var windowsill = module.exports = function(eventName, opts) {
 
             this._emitter.emit(this.eventName, eventName);
 
-            // call beforeEvent hook with context
-            if(this.opts.afterEvent) this.opts.afterEvent.call(this);
+            // call beforeEvent hook
+            if(this.opts.afterEvent) this.opts.afterEvent(this, event);
         },
 
         debounced: function() {},

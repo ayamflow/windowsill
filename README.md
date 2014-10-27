@@ -38,13 +38,13 @@ var scroller = windowsill('scroll', {
         dy: 0,
         ox: 0,
         oy: 0,
-        beforeEvent: function() { // (3)
-            this.ox = this.x;
-            this.oy = this.y;
+        beforeEvent: function(sill, event) { // (3)
+            sill.ox = sill.x;
+            sill.oy = sill.y;
         },
-        afterEvent: function() {
-            this.dx = this.x - this.ox;
-            this.dy = this.y - this.oy;
+        afterEvent: function(sill, event) {
+            sill.dx = sill.x - sill.ox;
+            sill.dy = sill.y - sill.oy;
         }
     }
 });
@@ -52,9 +52,9 @@ var scroller = windowsill('scroll', {
 scroller.addListener(this.onScroll);
 ```
 
-* *(1)* you can link a window property to the sill object by passing it as a string. scroller.x will be set to window.pageXOffset on each event.
+* *(1)* you can link a window property to the sill object by passing it as a string. `scroller.x` will be set to `window.pageXOffset` on each event.
 * *(2)* you can also pass additionnal properties as non-string, mostly to give initial values.
-* *(3)* you can pass `beforeEvent` and `afterEvent` callbacks, which will be called respectively before and after the event is emitted. Those callbacks will automatically be called with the sill context.
+* *(3)* you can pass `beforeEvent` and `afterEvent` callbacks, which will be called respectively before and after the event is emitted. The sill reference and the event are passed as parameters to those callbacks.
 
 By default, `scroll` and `resize` are already available as `windowsill.resizer` and `windowsill.scroller`, with default debounce time (see [events.js](https://github.com/ayamflow/windowsill/blob/master/src/events.js) for more details).
 This allows to bind all window events to a global abstract object:
