@@ -15,16 +15,16 @@ Allow you to listen to an event emitter rather than to the DOM.
 Factory returning a sill object (event emitter responding to the provided `event`).
 * event: a string-based window event, such as 'scroll', 'resize', ...
 * opts:
-    * debounce: debounce delay for the event
-    * props: hash of window properties to inherit (see example)
-    * beforeEvent: callback called before emitting the event
-    * afterEvent: callabck called after emitting the event
+    * *debounce*: debounce delay for the event
+    * *props*: hash of window properties to inherit (see example)
+    * *beforeEvent*: callback called before emitting the event
+    * *afterEvent*: callback called after emitting the event
 
 ### sill object API
-* addListener(cb)
-* removeListener(cb)
-* bind: attach the event to the DOM (automatically called when using the windowsill factory)
-* unbind: detach the event from the DOM
+* *addListener(cb)*
+* *removeListener(cb)*
+* *bind*: attach the event to the DOM (automatically called when using the windowsill factory)
+* *unbind*: detach the event from the DOM
 
 ### Example
 
