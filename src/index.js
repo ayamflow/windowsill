@@ -67,6 +67,8 @@ var windowsill = module.exports = function(eventName, opts) {
     sill.debounced = debounce(sill.onEvent.bind(sill), opts.debounce);
     sill.bind();
 
+    if(opts.immediate) sill.onEvent();
+
     return sill;
 };
 

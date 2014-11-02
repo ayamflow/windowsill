@@ -8,7 +8,8 @@ module.exports = {
             props: {
                 x: 'pageXOffset',
                 y: 'pageYOffset'
-            }
+            },
+            immediate: true
         }
     },
     'resizer': {
@@ -18,7 +19,8 @@ module.exports = {
             props: {
                 width: 'innerWidth',
                 height: 'innerHeight'
-            }
+            },
+            immediate: true
         }
     }
 };

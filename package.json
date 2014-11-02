@@ -1,6 +1,6 @@
 {
   "name": "windowsill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Abstract, debounced windows events.",
   "main": "src/index.js",
   "scripts": {
