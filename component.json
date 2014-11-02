@@ -1,6 +1,6 @@
 {
   "name": "windowsill",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": "ayamflow/windowsill",
   "description": "Abstract, debounced windows events.",
   "main": "src/index.js",

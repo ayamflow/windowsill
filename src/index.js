@@ -22,7 +22,7 @@ var windowsill = module.exports = function(eventName, opts) {
         },
 
         removeListener: function(listener) {
-            if(listener) this._emitter.removeListener(eventName, listener);
+            if(listener) this._emitter.off(eventName, listener);
         },
 
         onEvent: function(event) {
