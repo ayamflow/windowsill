@@ -57,13 +57,15 @@ var windowsill = module.exports = function(eventName, opts) {
         debounced: function() {},
 
         bind: function() {
+            if(this.bound) return;
             this.bound = true;
             window.addEventListener(this.eventName, this.debounced);
         },
 
         unbind: function() {
-            window.removeEventListener(this.eventName, this.debounced);
+            if(!this.bound) return;
             this.bound = false;
+            window.removeEventListener(this.eventName, this.debounced);
         }
     };
 
