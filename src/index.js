@@ -14,6 +14,7 @@ var windowsill = module.exports = function(eventName, opts) {
     var sill = {
         opts: opts,
         eventName: eventName,
+        bound: false,
 
         _emitter: new EventEmitter(),
 
@@ -56,20 +57,35 @@ var windowsill = module.exports = function(eventName, opts) {
         debounced: function() {},
 
         bind: function() {
+            this.bound = true;
             window.addEventListener(this.eventName, this.debounced);
         },
 
         unbind: function() {
             window.removeEventListener(this.eventName, this.debounced);
+            this.bound = false;
         }
     };
 
     sill.debounced = debounce(sill.onEvent.bind(sill), opts.debounce);
-    sill.bind();
 
     if(opts.immediate) sill.onEvent();
 
     return sill;
+};
+
+windowsill.enable = function(sillName) {
+    var sill = windowsill[sillName];
+    if(!sill) return console.log('[windowsill] has no registered sill with the name "' + sillName + '".');
+    if(sill.bound) return;
+    sill.bind();
+};
+
+windowsill.disable = function(sillName) {
+    var sill = windowsill[sillName];
+    if(!sill) return console.log('[windowsill] has no registered sill with the name "' + sillName + '".');
+    if(!sill.bound) return;
+    sill.unbind();
 };
 
 /*

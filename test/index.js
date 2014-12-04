@@ -4,12 +4,19 @@ var test = require('tape'),
     windowsill = require('../src/index.js');
 
 test('windowsill init', function (assert) {
-    assert.plan(8);
+    assert.plan(10);
 
     assert.ok(windowsill.resizer, 'Resizer exists on windowsill.');
     assert.ok(windowsill.resizer.addListener, 'Resizer addListener method exists on windowsill.');
     assert.ok(windowsill.scroller, 'Scroller exist on windowsill.');
     assert.ok(windowsill.scroller.addListener, 'Scroller addListener method exists on windowsill.');
+
+    assert.notOk(windowsill.resizer.bound, 'resizer should not be bound after init.');
+
+    windowsill.enable('resizer');
+    windowsill.enable('scroller');
+
+    assert.ok(windowsill.resizer.bound, 'resizer should be bound after enable() call.');
 
     var resized = false;
     windowsill.resizer.addListener(function() {
@@ -40,6 +47,8 @@ test('windowsill init', function (assert) {
             assert.deepEqual(afterCalled, true, 'After callback properly triggered.');
         }
     });
+    resizer.bind();
+
     triggerEvent(window, 'resize');
 });
 
