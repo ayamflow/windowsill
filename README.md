@@ -20,10 +20,17 @@ Factory returning a sill object (event emitter responding to the provided `event
     * *beforeEvent*: callback called before emitting the event
     * *afterEvent*: callback called after emitting the event
 
+### windowsill.enable(sillName)
+Bind the requested sill on window. (available for `resizer` and `scroller`).
+*Since sill object are deactivated by default, you have to call this method to enable `resizer` and `scroller`.*
+
+### windowsill.disable(sillName)
+Unbind the requested sill.
+
 ### sill object API
 * *addListener(cb)*
 * *removeListener(cb)*
-* *bind*: attach the event to the DOM (automatically called when using the windowsill factory)
+* *bind*: attach the event to the DOM
 * *unbind*: detach the event from the DOM
 
 ### Example
