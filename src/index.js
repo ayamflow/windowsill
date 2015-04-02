@@ -65,6 +65,7 @@ var windowsill = module.exports = function(eventName, opts) {
         unbind: function() {
             if(!this.bound) return;
             this.bound = false;
+            this._emitter.off(eventName);
             window.removeEventListener(this.eventName, this.debounced);
         }
     };

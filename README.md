@@ -31,7 +31,8 @@ Unbind the requested sill.
 * *addListener(cb)*
 * *removeListener(cb)*
 * *bind*: attach the event to the DOM
-* *unbind*: detach the event from the DOM
+* *unbind*: detach the event from the DOM & remove all listeners from the sill object
+* *onEvent(event)*: manually trigger the sill update. You can pass an event-like object if you want to set some properties, or just let it parse (if possible) those properties from the `window` object.
 
 ### Example
 
@@ -57,6 +58,9 @@ var scroller = windowsill('scroll', {
 });
 
 scroller.addListener(this.onScroll);
+scroller.onEvent();
+
+scroller.unbind(); // unbind event from window & clear all listeners.
 ```
 
 * *(1)* you can link a window property to the sill object by passing it as a string. `scroller.x` will be set to `window.pageXOffset` on each event.

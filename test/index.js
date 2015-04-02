@@ -52,6 +52,14 @@ test('windowsill init', function (assert) {
     triggerEvent(window, 'resize');
 });
 
+test('windowsill cleanup', function (assert) {
+    var resizer = windowsill.resizer;
+    resizer.addListener(function() {});
+    assert.ok(resizer._emitter.e.resize, 'We should have some listener registered');
+    resizer.unbind();
+    assert.notOk(resizer._emitter.e.resize, 'All listeners should be removed.');
+});
+
 function triggerEvent(el, eventName) {
     var evt = document.createEvent('HTMLEvents');
     evt.initEvent(eventName, true, false);
